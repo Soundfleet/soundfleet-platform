@@ -1,9 +1,6 @@
 [submodule "soundfleet"]
 	path = soundfleet
 	url = https://github.com/Soundfleet/soundfleet.git
-[submodule "soundfleet-player"]
-	path = soundfleet-player
-	url = https://github.com/Soundfleet/soundfleet-player.git
 [submodule "soundfleet-inventory"]
 	path = soundfleet-inventory
 	url = https://github.com/Soundfleet/soundfleet-inventory.git
