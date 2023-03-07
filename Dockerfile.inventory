@@ -1,0 +1,7 @@
+FROM saltstack/salt:3005.1
+
+COPY etc/salt/master /etc/salt/master
+
+COPY pillar /srv/pillar
+
+COPY salt /srv/salt

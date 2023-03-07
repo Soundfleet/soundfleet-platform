@@ -1,0 +1,62 @@
+version: '3.9'
+services:
+  salt_master:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - default
+    ports:
+      - '4505-4506:4505-4506'
+      - '8001:8001'
+    environment:
+      SALT_API_CONFIG: > 
+        {
+          "rest_cherrypy": {
+            "port": 8001,
+            "disable_ssl": true
+          },
+          "external_auth": {
+            "sharedsecret": {
+              "saltdev": [
+                ".*",
+                "@wheel",
+                "@runner",
+                "@jobs"
+              ]
+            }
+          },
+          "sharedsecret": "saltpass"
+        }
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=soundfleet
+      - POSTGRES_USER=soundfleet
+      - POSTGRES_PASSWORD=soundfleet
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks:
+      - default
+
+  soundfleet:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+      - ./assets:/assets
+    networks:
+      - default
+    environment:
+      - DATABASE_URL=postgresql://soundfleet:soundfleet@db:5432/soundfleet
+      - MEDIA_ROOT=/assets/media/
+
+
+volumes:
+  db:

@@ -1,0 +1,3 @@
+[submodule "soundfleet"]
+	path = soundfleet
+	url = https://github.com/Soundfleet/soundfleet.git
