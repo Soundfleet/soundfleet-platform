@@ -3,7 +3,7 @@ services:
   salt_master:
     build: 
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.inventory
     networks:
       - default
     ports:
@@ -43,14 +43,14 @@ services:
   soundfleet:
     build: 
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.soundfleet
     ports:
       - 8000:8000
     depends_on:
       - db
     volumes:
-      - .:/app
-      - ./assets:/assets
+      - ./soundfleet:/app
+      - ./soundfleet/assets:/assets
     networks:
       - default
     environment:

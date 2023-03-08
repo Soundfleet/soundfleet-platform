@@ -1,7 +1,7 @@
 FROM saltstack/salt:3005.1
 
-COPY etc/salt/master /etc/salt/master
+COPY soundfleet-inventory/etc/salt/master /etc/salt/master
 
-COPY pillar /srv/pillar
+COPY soundfleet-inventory/pillar /srv/pillar
 
-COPY salt /srv/salt
+COPY soundfleet-inventory/salt /srv/salt

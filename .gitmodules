@@ -4,3 +4,6 @@
 [submodule "soundfleet-inventory"]
 	path = soundfleet-inventory
 	url = https://github.com/Soundfleet/soundfleet-inventory.git
+[submodule "soundfleet-dashboard"]
+	path = soundfleet-dashboard
+	url = https://github.com/Soundfleet/soundfleet-dashboard.git

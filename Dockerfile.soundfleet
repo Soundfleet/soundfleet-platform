@@ -1,15 +1,19 @@
 FROM python:3.10-slim-bullseye
 
 RUN apt update -y
-RUN apt install -y gcc ffmpeg libmagic1
+RUN apt install -y gcc ffmpeg libmagic1 tree
 
-COPY . /app
-
-RUN pip install -r /app/requirements.txt
-RUN pip install -r /app/requirements.dev.txt
+COPY soundfleet /app
 
 WORKDIR /app
 
+RUN pip install -r requirements.txt
+RUN pip install -r requirements.dev.txt
+
+COPY soundfleet/soundfleet/settings/sample_storages.py /app/soundfleet/settings/storages.py
+
+RUN tree ${pwd}
+
 EXPOSE 8000
 
-CMD ./manage.py runserver 0.0.0.0:8000
+CMD python manage.py runserver 0.0.0.0:8000
