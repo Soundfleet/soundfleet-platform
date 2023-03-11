@@ -4,7 +4,7 @@ COPY soundfleet-inventory/etc/salt/master /etc/salt/master
 
 ARG soundfleet_url
 
-RUN sed "s,soundfleet_url,$soundfleet_url,g" /etc/salt/master
+RUN sed -i "s,soundfleet_url,$soundfleet_url,g" /etc/salt/master
 
 COPY soundfleet-inventory/pillar /srv/pillar
 
