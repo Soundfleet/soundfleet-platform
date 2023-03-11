@@ -2,6 +2,10 @@ FROM saltstack/salt:3005.1
 
 COPY soundfleet-inventory/etc/salt/master /etc/salt/master
 
+ARG soundfleet_url
+
+RUN sed "s,soundfleet_url,$soundfleet_url,g" /etc/salt/master
+
 COPY soundfleet-inventory/pillar /srv/pillar
 
 COPY soundfleet-inventory/salt /srv/salt

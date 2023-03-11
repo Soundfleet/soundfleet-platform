@@ -4,6 +4,8 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile.inventory
+      args:
+        - soundfleet_url=${SOUNDFLEET_URL}
     networks:
       - default
     ports:
