@@ -83,6 +83,7 @@ services:
     environment:
       - DATABASE_URL=postgresql://soundfleet:soundfleet@db:5432/soundfleet
       - MEDIA_ROOT=/assets/media/
+      - DOMAIN=${DOMAIN}
     command: celery -A soundfleet worker
 
 
