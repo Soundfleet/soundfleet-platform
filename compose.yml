@@ -59,14 +59,23 @@ services:
     depends_on:
       - db
     volumes:
-      - ./soundfleet:/app
-      - ./soundfleet/assets:/assets
+      - assets:/app/assets
+      - caches:/app/caches
     networks:
       - default
     environment:
       - DATABASE_URL=postgresql://soundfleet:soundfleet@db:5432/soundfleet
       - MEDIA_ROOT=/assets/media/
       - DOMAIN=${DOMAIN}
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+    ports:
+      - 3000:3000
+    networks:
+      - default
 
   worker:
     build: 
@@ -76,8 +85,8 @@ services:
       - db
       - rabbitmq
     volumes:
-      - ./soundfleet:/app
-      - ./soundfleet/assets:/assets
+      - assets:/app/assets
+      - caches:/app/caches
     networks:
       - default
     environment:
@@ -86,7 +95,7 @@ services:
       - DOMAIN=${DOMAIN}
     command: celery -A soundfleet worker
 
-
-
 volumes:
   db:
+  assets:
+  caches:
