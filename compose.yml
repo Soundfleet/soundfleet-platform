@@ -59,8 +59,8 @@ services:
     depends_on:
       - db
     volumes:
-      - assets:/app/assets
-      - caches:/app/caches
+      - assets:/assets
+      - caches:/caches
     networks:
       - default
     environment:
@@ -85,8 +85,8 @@ services:
       - db
       - rabbitmq
     volumes:
-      - assets:/app/assets
-      - caches:/app/caches
+      - assets:/assets
+      - caches:/caches
     networks:
       - default
     environment:
