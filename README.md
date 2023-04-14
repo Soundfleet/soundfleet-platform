@@ -9,6 +9,8 @@ _Keep in mind  this repository is not meant to be deployed in any production env
 ## Requirements
 1. [Docker](https://docs.docker.com/install/)
 
+2. [docker-compose](https://docs.docker.com/compose/install/other/)
+
 ## How to run it?
 1. Clone this repository:
 ```shell
