@@ -39,3 +39,26 @@ python manage.py migrate
 ```shell
 python manage.py createsuperuser
 ```
+
+## How to connect your RPi?
+1. Flash your SD card with preferred distro (minimal raspbian is sufficient).
+
+2. Install [salt minion](https://docs.saltproject.io/salt/install-guide/en/latest/)
+
+3. Configure salt minion:
+```yaml
+# /etc/salt/minion
+master: salt  # <- replaace this to: <UUID of your device created via soundfleet dashboard>
+```
+
+```yaml
+# /etc/salt/minion_id
+<UUID of your device created via soundfleet dashboard>
+```
+
+4. Restart salt minion service:
+```shell
+sudo systemctl restart salt-minion
+```
+
+5. Connect device by accepting salt key from RPi, you can do this from soundfleet dashboard
