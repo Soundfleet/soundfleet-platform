@@ -73,6 +73,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dashboard
+      args:
+        - soundfleet_url=${SOUNDFLEET_URL}
     ports:
       - 3000:3000
     networks:

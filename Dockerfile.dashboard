@@ -8,4 +8,8 @@ COPY soundfleet-dashboard ./
 
 RUN npm install 
 
+ARG soundfleet_url
+
+RUN echo "REACT_APP_API_URL=$soundfleet_url/api" > .env.development
+
 CMD ["npm", "start"]
