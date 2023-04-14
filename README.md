@@ -29,5 +29,13 @@ git submodule update --recursive --remote
 ```
 3. Run application:
 ```shell
-ducker-compose up --build
+docker-compose up --build
+```
+4. Run migrations inside soundfleet container:
+```shell
+python manage.py migrate
+```
+5. Create superuser inside soundfleet container:
+```shell
+python manage.py createsuperuser
 ```
