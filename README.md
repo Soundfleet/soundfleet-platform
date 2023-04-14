@@ -48,7 +48,7 @@ python manage.py createsuperuser
 3. Configure salt minion:
 ```yaml
 # /etc/salt/minion
-master: salt  # <- replaace this to: <UUID of your device created via soundfleet dashboard>
+master: salt  # <- replace this to hostname of your salt master instance
 ```
 
 ```yaml
