@@ -29,15 +29,25 @@ git submodule update --init --recursive
 ```shell
 git submodule update --recursive --remote
 ```
-3. Run application:
+
+3. Create `.env` file inside root directory of this repo with following content:
+```yaml
+DOMAIN=a.b.c.d:8000
+SOUNDFLEET_URL=http://a.b.c.d:8000
+CORS_ORIGIN_WHITELIST=http://a.b.c.d:3000
+
+# where a.b.c.d is IP address of your host
+```
+
+4. Run application:
 ```shell
 docker-compose up --build
 ```
-4. Run migrations inside soundfleet container:
+5. Run migrations inside soundfleet container:
 ```shell
 python manage.py migrate
 ```
-5. Create superuser inside soundfleet container:
+6. Create superuser inside soundfleet container:
 ```shell
 python manage.py createsuperuser
 ```
