@@ -1,7 +1,7 @@
 FROM python:3.10-slim-bullseye
 
 RUN apt update -y
-RUN apt install -y gcc ffmpeg libmagic1 tree
+RUN apt install -y gcc ffmpeg libmagic1
 
 COPY soundfleet /app
 
